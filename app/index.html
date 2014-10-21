@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<title>teste agrid</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<!-- build:css styles/vendor.css -->
+		<!-- bower:css -->
+		<!-- endbower -->
+		<!-- endbuild -->
+
+		<!-- build:css styles/main.css -->
+		<link rel="stylesheet" href="styles/main.css">
+		<!-- endbuild -->
+
+		<!-- build:js scripts/vendor.js -->
+		<!-- bower:js -->
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/platform/platform.js"></script>
+		<!-- endbower -->
+		<!-- endbuild -->
+
+		<link href='http://fonts.googleapis.com/css?family=Belleza' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link href="https://fontastic.s3.amazonaws.com/7rTErZy6AAJdf3vcxDmBJC/icons.css" rel="stylesheet">
+
+		<link rel="import" href="bower_components/polymer/polymer.html">
+		<link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+		<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+		<link rel="import" href="bower_components/core-icons/core-icons.html">
+		<link rel="import" href="bower_components/core-icons/hardware-icons.html">
+
+		<link rel="import" href="bower_components/font-roboto/roboto.html">
+		<link rel="import" href="bower_components/paper-fab/paper-fab.html">
+		<link rel="import" href="bower_components/paper-input/paper-input.html">
+		<link rel="import" href="bower_components/paper-slider/paper-slider.html">
+		<link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+		<link rel="import" href="bower_components/paper-item/paper-item.html">
+		<link rel="import" href="bower_components/paper-button/paper-button.html">
+	</head>
+	<body unresolved>
+		<!--[if lt IE 10]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+
+		<core-toolbar class="tall" flex>
+			<span flex class="bottom">Cadastro de atrações</span>
+			<paper-fab icon="add" class="bottom indent" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-fab>
+		</core-toolbar>
+		<core-drawer-panel responsiveWidth="1920px" drawerWidth="450px" disableSwipe="true">
+			<div drawer>
+				<form>
+					<h1 class="form-title title">Nova atração</h1>
+					<div class="form-field">
+						<img src="images/image-placeholder.png" class="image-placeholder" alt="">
+					</div>
+					<div class="form-field">
+						<paper-input floatingLabel label="Nome da atração" type="text" error="Campo obrigatório"></paper-input>
+					</div>
+					<div class="form-field">
+						<paper-dropdown-menu label="Tipo de atração" halign="right" valign="bottom" selected="Donut">
+							<paper-item label="Croissant"></paper-item>
+							<paper-item label="Donut"></paper-item>
+							<paper-item label="Financier"></paper-item>
+							<paper-item label="Madeleine"></paper-item>
+						</paper-dropdown-menu>
+					</div>
+					<div class="form-field showtime">
+						<span>Horário de exibição (Ex: 8h, 12h, etc)</span>
+						<paper-slider value="12" max="23" editable></paper-slider>
+					</div>
+					<div class="form-footer">
+						<paper-button class="cancel-btn">
+							<core-icon icon="clear"></core-icon>
+							Cancelar
+						</paper-button>
+						<paper-button raised class="save-btn">
+							<core-icon icon="check"></core-icon>
+							Salvar
+						</paper-button>
+					</div>
+				</form>
+		</div>
+			<div main class="cf">
+				<div class="schedule to-left">
+					<div class="card cf">
+						<div class="cover to-left" style="background-image: url('images/tonight-show.jpg')"></div>
+						<div class="text to-left">
+							<h1 class="title">Nome do show</h1>
+							<p class="info">
+								<i class="icon-clock"></i> Horário de exibição
+							</p>
+							<div class="info">
+								<i class="icon-user"></i> Horário de exibição
+							</div>
+							<div class="type">
+								<img class="media-type" src="images/filme.png" alt="">
+								<p>Cinema</p>
+							</div>
+						</div>
+					</div>
+					<div class="card cf">
+						<div class="cover to-left" style="background-image: url('images/tonight-show.jpg')"></div>
+						<div class="text to-left">
+							<h1 class="title">Nome do show</h1>
+							<p class="info">
+								<i class="icon-clock"></i> Horário de exibição
+							</p>
+							<div class="info">
+								<i class="icon-user"></i> Horário de exibição
+							</div>
+							<div class="type">
+								<img class="media-type" src="images/tv.png" alt="">
+								<p>Televisão</p>
+							</div>
+						</div>
+					</div>
+					<div class="card cf">
+						<div class="cover to-left" style="background-image: url('images/tonight-show.jpg')"></div>
+						<div class="text to-left">
+							<h1 class="title">Nome do show</h1>
+							<p class="info">
+								<i class="icon-clock"></i> Horário de exibição
+							</p>
+							<div class="info">
+								<i class="icon-user"></i> Horário de exibição
+							</div>
+							<div class="type">
+								<img class="media-type" src="images/show.png" alt="">
+								<p>Show</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-view to-left">
+					<div class="card cf">
+						<div class="cover" style="background-image: url('images/tonight-show.jpg')"></div>
+						<div class="text">
+							<h1 class="title">Nome do show</h1>
+							<p class="info">
+								<i class="icon-clock"></i> Horário de exibição
+							</p>
+							<div class="info">
+								<i class="icon-user"></i> Horário de exibição
+							</div>
+							<div class="type">
+								<img class="media-type" src="images/show.png" alt="">
+								<p>Show</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</core-drawer-panel>
+
+		<!-- build:js scripts/main.js -->
+		<script src="scripts/main.js"></script>
+		<!-- endbuild -->
+</body>
+</html>

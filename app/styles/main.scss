@@ -1,0 +1,209 @@
+$cinza-claro: #eee;
+$branco: #fff;
+$verde: #0F9D58;
+$amarelo: #EDB92E;
+$vermelho: #CE1836;
+$laranja: #F85931;
+$amarelo-claro: #F2C45A;
+$cinza: #6C6C6C;
+
+$card-size: 140px;
+$icon-size: 64px;
+$margin-icon: ($card-size/2) - ( ($icon-size + 19) /2);
+
+.to-left{
+	float: left;
+}
+
+.to-right{
+	float: right;
+}
+
+.save-btn{
+	background-color: $verde;
+	color: $branco;
+}
+
+.cancel-btn{
+	color: $vermelho;
+}
+
+body {
+	background: $cinza-claro;
+	font-family: "RobotoDraft", Helvetica, Arial, sans-serif;
+	color: #333;
+	margin: 0;
+}
+
+core-toolbar{
+	background-color: $amarelo;
+
+	span{
+		font-family: 'PT Sans';
+		color: #fff;
+		font-size: 2.5em;
+	}
+}
+
+paper-fab {
+	background-color: $vermelho;
+	color: #fff;
+	z-index: 1;
+
+	&.bottom{
+		margin-bottom: -60px;
+	}
+}
+
+core-drawer-panel{
+	top: initial;
+	left: initial;
+
+	[drawer]{
+		background-color: $branco;
+		padding: 40px 0;
+	}
+
+	[main]{
+		padding: 30px 20px 20px;
+	}
+}
+
+form{
+	.form-field,
+	.form-title{
+		width: 320px;
+		margin: auto;
+		padding: 4px 0;
+
+		span{
+			color: #757575;
+		}
+	}
+
+	.form-footer{
+		width: 320px;
+		margin: 40px auto;
+		text-align: right;
+	}
+
+	paper-slider,
+	paper-dropdown-menu{
+		width: 100%
+	}
+}
+
+.image-placeholder{
+	width: 100%;
+}
+
+.schedule, .card-view{
+	width: 50%;
+	box-sizing: border-box;
+	padding: 10px;
+
+	.card{
+		margin-bottom: 10px;
+	}
+}
+
+.title{
+	margin-bottom: 0;
+	color: $vermelho;
+	font-weight: 300;
+}
+
+.card {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #fff;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+	.cover{
+		background-size: cover;
+		background-position: center;
+	}
+
+	.text{
+		box-sizing: border-box;
+		position: relative;
+		color: $cinza;
+		// color: #525252;
+
+
+		.info{
+			margin: 6px 0;
+			font-weight: 300;
+		}
+
+		.type{
+			position: absolute;
+			right: 10px;
+			top: $margin-icon;
+			p{
+				margin: 0;
+				text-align: center;
+			}
+		}
+	}
+}
+
+.schedule{
+
+	.cover{
+		width: 30%;
+		height: $card-size;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.text{
+		width: 70%;
+		height: 140px;
+		padding: 0 20px;
+
+		.type{
+			position: absolute;
+			right: 10px;
+			top: $margin-icon;
+			p{
+				margin: 0;
+				text-align: center;
+			}
+		}
+	}
+
+}
+
+.card-view{
+
+	.cover{
+		width: 100%;
+		height: $card-size + 100px;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.text{
+		padding: 20px 20px 30px;
+	}
+}
+
+.media-type{
+	width: $icon-size;
+}
+
+// Clearfix correction
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
