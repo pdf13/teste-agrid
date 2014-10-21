@@ -107,7 +107,8 @@ gulp.task('wiredep', function () {
 
     gulp.src('app/*.html')
         .pipe(wiredep({
-            directory: 'app/bower_components'
+            directory: 'app/bower_components',
+            exclude: [ 'bower_components/polymer/polymer.js' ]
         }))
         .pipe(gulp.dest('app'));
 });
