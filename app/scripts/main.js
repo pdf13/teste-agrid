@@ -1,24 +1,51 @@
 'use strict';
 
-$(function(){
+var mainSchedule = null;
 
-	var programType = {0: 'tv', 1: 'show', 2: 'movie'};
+$(function(){
 
 	function Program(name, user, startTime, type, imageUrl){
 		this.name =  name || '';
 		this.user =  user || '';
 		this.startTime =  startTime || -1;
-		this.type = programType[type] || '';
+		this.type = type || '';
 		this.imageUrl =  imageUrl || '';
 		this.dom = $('.card.hide').clone().removeClass('hide');
 
+		function initialize(program){
+			initializeDOM(program);
+			setTriggers(program);
+		}
 
-		this.dom.find('.cover').css('background-image', 'url("'+this.imageUrl+'"")');
-		this.dom.find('.title').html(this.name);
-		this.dom.find('.info.time span').html(this.startTime);
-		this.dom.find('.info.user span').html(this.user);
-		this.dom.find('.media-type').attr('src', 'images/' + this.type + '.png');
-		this.dom.find('type p').html(this.type);
+		function initializeDOM(program){
+			program.dom.find('.cover').css('background-image', 'url("'+program.imageUrl+'")');
+			program.dom.find('.title').html(program.name);
+
+			if(program.startTime === -1){
+				program.dom.find('.info.time').remove()
+			}else{
+				program.dom.find('.info.time span').html(program.startTime + ':00h');
+			}
+
+			program.dom.find('.info.user span').html(program.user);
+			program.dom.find('.media-type').attr('src', 'images/' + program.type + '.png');
+			program.dom.find('.type p').html(program.type);
+		}
+
+		function setTriggers(program){
+			program.dom.on('click', function(){
+				$('.card.selected')
+					.removeClass('selected')
+					.find('paper-shadow')
+					.attr('z', 1);
+				program.dom
+					.toggleClass('selected')
+					.find('paper-shadow')
+					.attr('z', 3);
+			});
+		}
+
+		initialize(this);
 	}
 
 	function Schedule(){
@@ -27,7 +54,30 @@ $(function(){
 	}
 
 	Schedule.prototype = {
-		addProgram :  function(){},
+		addProgram :  function(name, user, startTime, type, imageUrl){
+			var schedule = this;
+			var program = new Program(name, user, startTime, type, imageUrl);
+
+			if(!startTime){
+				schedule.dom.append(program.dom);
+				schedule.programs.push(program);
+				return;
+			};
+
+			$.each(schedule.programs, function(ind, obj){
+				if(obj.startTime > program.startTime){
+					schedule.programs.splice(ind, 0, program);
+					program.dom.insertBefore(schedule.dom.find('.card').eq(ind));
+					program = null;
+					return false;
+				}
+			});
+
+			if(program){
+				schedule.dom.append(program.dom);
+				schedule.programs.push(program);
+			}
+		},
 		removeProgram : function(){},
 		initializeSchedule :  function(){
 			var schedule = this;
@@ -47,6 +97,6 @@ $(function(){
 		}
 	};
 
-	var mainSchedule = new Schedule();
+	mainSchedule = new Schedule();
 	mainSchedule.initializeSchedule();
 });

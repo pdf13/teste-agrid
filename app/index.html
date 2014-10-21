@@ -28,20 +28,13 @@
 		<link href="https://fontastic.s3.amazonaws.com/7rTErZy6AAJdf3vcxDmBJC/icons.css" rel="stylesheet">
 
 		<link rel="import" href="bower_components/polymer/polymer.html">
-		<link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
-		<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 		<link rel="import" href="bower_components/core-icons/core-icons.html">
-		<link rel="import" href="bower_components/core-icons/hardware-icons.html">
 
 		<link rel="import" href="bower_components/font-roboto/roboto.html">
 		<link rel="import" href="bower_components/paper-fab/paper-fab.html">
-		<link rel="import" href="bower_components/paper-input/paper-input.html">
-		<link rel="import" href="bower_components/paper-slider/paper-slider.html">
-		<link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-		<link rel="import" href="bower_components/paper-item/paper-item.html">
-		<link rel="import" href="bower_components/paper-button/paper-button.html">
-		<link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
-		<link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+		<link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+
+		<link rel="import" href="components/modal-form/modal-form.html">
 	</head>
 	<body unresolved>
 		<!--[if lt IE 10]>
@@ -49,10 +42,11 @@
 		<![endif]-->
 
 		<div class="container cf">
-			<paper-fab icon="add" class="bottom indent" onclick="document.querySelector('paper-dialog').toggle();"></paper-fab>
+			<paper-fab icon="add" class="bottom indent" onclick="document.querySelector('form-action').openDialog();"></paper-fab>
 			<div class="schedule to-left"></div>
 			<div class="card-view to-left">
 				<div class="card cf">
+					<paper-shadow z="1"></paper-shadow>
 					<div class="cover" style="background-image: url('images/tonight-show.jpg')"></div>
 					<div class="text">
 						<h1 class="title">Nome do show</h1>
@@ -72,6 +66,7 @@
 		</div>
 
 		<div class="card cf hide">
+			<paper-shadow z="1"></paper-shadow>
 			<div class="cover to-left" style="background-image: url('images/tonight-show.jpg')"></div>
 			<div class="text to-left">
 				<h1 class="title">Nome do show</h1>
@@ -90,39 +85,7 @@
 			</div>
 		</div>
 
-		<paper-dialog transition="paper-dialog-transition-center" backdrop="true">
-			<form>
-				<h1 class="form-title title">Nova atração</h1>
-				<div class="form-field">
-					<img src="images/image-placeholder.png" class="image-placeholder" alt="">
-				</div>
-				<div class="form-field">
-					<paper-input floatingLabel label="Nome da atração" type="text" error="Campo obrigatório"></paper-input>
-				</div>
-				<div class="form-field">
-					<paper-dropdown-menu label="Tipo de atração" halign="right" valign="bottom" selected="Donut">
-						<paper-item label="Croissant"></paper-item>
-						<paper-item label="Donut"></paper-item>
-						<paper-item label="Financier"></paper-item>
-						<paper-item label="Madeleine"></paper-item>
-					</paper-dropdown-menu>
-				</div>
-				<div class="form-field showtime">
-					<span>Horário de exibição (Ex: 8h, 12h, etc)</span>
-					<paper-slider value="12" max="23" editable></paper-slider>
-				</div>
-				<div class="form-footer">
-					<paper-button class="cancel-btn" onclick="document.querySelector('paper-dialog').toggle();">
-						<core-icon icon="clear"></core-icon>
-						Cancelar
-					</paper-button>
-					<paper-button raised class="save-btn">
-						<core-icon icon="check"></core-icon>
-						Salvar
-					</paper-button>
-				</div>
-			</form>
-		</paper-dialog>
+		<form-action></form-action>
 
 		<!-- build:js scripts/main.js -->
 		<script src="scripts/main.js"></script>
