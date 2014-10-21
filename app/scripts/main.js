@@ -42,11 +42,33 @@ $(function(){
 					.toggleClass('selected')
 					.find('paper-shadow')
 					.attr('z', 3);
+				program.changeCardView(program);
 			});
 		}
 
 		initialize(this);
 	}
+
+	Program.prototype = {
+		changeCardView: function(){
+			var cardView = $('.card-view');
+			cardView.find('.cover').css('background-image', 'url("'+this.imageUrl+'")');
+			cardView.find('.title').html(this.name);
+
+			if(this.startTime === -1){
+				cardView.find('.info.time').addClass('hide');
+			}else{
+				cardView.find('.info.time')
+					.removeClass('hide')
+					.find('span')
+					.html(this.startTime + ':00h');
+			}
+
+			cardView.find('.info.user span').html(this.user);
+			cardView.find('.media-type').attr('src', 'images/' + this.type + '.png');
+			cardView.find('.type p').html(this.type);
+		}
+	};
 
 	function Schedule(){
 		this.programs = [];

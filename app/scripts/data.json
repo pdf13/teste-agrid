@@ -1,44 +1,44 @@
 [
 	{
 		"name" : "Xou da Xuxa",
-		"user" : "Laura",
+		"user" : "Cláudia",
 		"startTime" : 10,
-		"type" : "Show",
-		"imageUrl" : "images/tonight-show.jpg"
+		"type" : "TV",
+		"imageUrl" : "images/xou-da-xuxa.jpeg"
 	},
 	{
 		"name" : "Ben 10",
-		"user" : "Gabriel",
+		"user" : "Juca",
 		"startTime" : 11,
-		"type" : "Filme",
-		"imageUrl" : "images/tonight-show.jpg"
+		"type" : "TV",
+		"imageUrl" : "images/ben-10.jpeg"
 	},
 	{
-		"name" : "Dragon Ball Z",
-		"user" : "Lucas",
+		"name" : "Foo Fighters",
+		"user" : "Carlos",
 		"startTime" : 13,
 		"type" : "Show",
-		"imageUrl" : "images/tonight-show.jpg"
+		"imageUrl" : "images/foo-fighters.jpeg"
 	},
 	{
-		"name" : "Jiraya",
+		"name" : "Avengers",
 		"user" : "Pedro",
 		"startTime" : 17,
-		"type" : "TV",
-		"imageUrl" : "images/tonight-show.jpg"
+		"type" : "Filme",
+		"imageUrl" : "images/avengers.jpeg"
 	},
 	{
-		"name" : "Jornal Nacional",
-		"user" : "William",
+		"name" : "Gone Girl",
+		"user" : "Tereza",
 		"startTime" : 20,
 		"type" : "Filme",
-		"imageUrl" : "images/tonight-show.jpg"
+		"imageUrl" : "images/gone-girl.jpg"
 	},
 	{
-		"name" : "The Tonight Show",
-		"user" : "Renan",
+		"name" : "Magic",
+		"user" : "Luísa",
 		"startTime" : 22,
-		"type" : "TV",
-		"imageUrl" : "/images/tonight-show.jpg"
+		"type" : "Show",
+		"imageUrl" : "/images/magic.jpg"
 	}
 ]
