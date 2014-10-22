@@ -44,11 +44,6 @@ gulp.task('html', ['styles', 'scripts'], function () {
 
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
-        .pipe($.cache($.imagemin({
-            optimizationLevel: 3,
-            progressive: true,
-            interlaced: true
-        })))
         .pipe(gulp.dest('dist/images'))
         .pipe($.size());
 });
@@ -70,7 +65,19 @@ gulp.task('clean', function () {
     return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras']);
+gulp.task('build', ['html', 'images', 'copy-extras', 'fonts', 'extras']);
+
+gulp.task('copy-extras', function(){
+	gulp.src('app/bower_components/**/*')
+	  .pipe(gulp.dest('dist/bower_components'))
+	  .pipe($.size());
+
+	gulp.src('app/components/**/*')
+	  .pipe(gulp.dest('dist/components/'))
+	  .pipe($.size());
+
+	return;
+});
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
@@ -107,7 +114,8 @@ gulp.task('wiredep', function () {
 
     gulp.src('app/*.html')
         .pipe(wiredep({
-            directory: 'app/bower_components'
+            directory: 'app/bower_components',
+            exclude: [ 'bower_components/polymer/polymer.js' ]
         }))
         .pipe(gulp.dest('app'));
 });

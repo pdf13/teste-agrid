@@ -1,0 +1,44 @@
+[
+	{
+		"name" : "Xou da Xuxa",
+		"user" : "Cláudia",
+		"startTime" : 10,
+		"type" : "TV",
+		"imageUrl" : "images/xou-da-xuxa.jpeg"
+	},
+	{
+		"name" : "Ben 10",
+		"user" : "Juca",
+		"startTime" : 11,
+		"type" : "TV",
+		"imageUrl" : "images/ben-10.jpeg"
+	},
+	{
+		"name" : "Foo Fighters",
+		"user" : "Carlos",
+		"startTime" : 13,
+		"type" : "Show",
+		"imageUrl" : "images/foo-fighters.jpeg"
+	},
+	{
+		"name" : "Avengers",
+		"user" : "Pedro",
+		"startTime" : 17,
+		"type" : "Filme",
+		"imageUrl" : "images/avengers.jpeg"
+	},
+	{
+		"name" : "Gone Girl",
+		"user" : "Tereza",
+		"startTime" : 20,
+		"type" : "Filme",
+		"imageUrl" : "images/gone-girl.jpg"
+	},
+	{
+		"name" : "Magic",
+		"user" : "Luísa",
+		"startTime" : 22,
+		"type" : "Show",
+		"imageUrl" : "/images/magic.jpg"
+	}
+]

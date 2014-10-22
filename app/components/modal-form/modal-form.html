@@ -1,0 +1,111 @@
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="/bower_components/paper-dialog/paper-dialog-transition.html">
+<link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+<link rel="import" href="/bower_components/paper-item/paper-item.html">
+<link rel="import" href="/bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="/bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="/bower_components/paper-radio-group/paper-radio-group.html">
+
+
+<polymer-element name="form-action">
+	<template>
+		<paper-dialog transition="paper-dialog-transition-center" backdrop="true" autoCloseDisabled="true">
+			<form class="newProgramForm" horizontal layout>
+				<div flex class="columns">
+					<h1 class="form-title title">Nova atração</h1>
+					<div class="form-field">
+						<img src="/images/image-placeholder.png" class="image-placeholder" alt="">
+					</div>
+				</div>
+				<div flex class="columns">
+					<div class="form-field">
+						<paper-input floatingLabel label="Nome da atração" type="text" required="true" error="Campo obrigatório" value="{{name}}"></paper-input>
+					</div>
+					<div class="form-field">
+						<paper-input floatingLabel label="Nome do usuário" type="text" required="true" error="Campo obrigatório" value="{{user}}"></paper-input>
+					</div>
+					<div class="form-field">
+						<span>Tipo de atração</span>
+						<paper-radio-group>
+							<paper-radio-button name="TV" label="TV"></paper-radio-button>
+							<paper-radio-button name="Show" label="Show"></paper-radio-button>
+							<paper-radio-button name="Filme" label="Filme"></paper-radio-button>
+						</paper-radio-group>
+					</div>
+					<div class="form-field showtime">
+						<span>Horário de exibição (Ex: 8h, 12h, etc)</span>
+						<paper-slider  min="1" max="24" editable value="{{startTime}}"></paper-slider>
+					</div>
+				</div>
+			</form>
+			<div class="form-footer">
+				<paper-button dismissive class="cancel-btn" on-click="{{clearFields}}">
+					<core-icon icon="clear"></core-icon>
+					Cancelar
+				</paper-button>
+				<paper-button raised class="save-btn" default on-click="{{addProgram}}">
+					<core-icon icon="check"></core-icon>
+					Salvar
+				</paper-button>
+			</div>
+		</paper-dialog>
+		<style>
+			.form-field,
+			.form-title{
+				width: 320px;
+				margin: auto;
+				padding: 3px 0;
+			}
+
+			.form-field span{
+				color: #757575;
+			}
+
+			.form-field paper-input{
+				padding: 3px 0;
+			}
+
+			.form-footer{
+				margin: 20px auto 0;
+				text-align: center;
+			}
+
+			paper-slider{
+				width: 100%
+			}
+
+			.title{
+				margin-bottom: 0;
+				color: #CE1836;
+				font-weight: 300;
+			}
+
+			.save-btn{
+				background-color: #0F9D58;
+				color: #fff;
+			}
+
+			.cancel-btn{
+				color: #CE1836;
+			}
+
+			.image-placeholder{
+				width: 100%;
+			}
+
+			.columns{
+				padding: 0 10px;
+			}
+
+			paper-radio-button::shadow #ink[checked] {
+			  color: #3F51B5;
+			}
+
+			paper-radio-button::shadow #onRadio {
+			  background-color: #3F51B5;
+			}
+		</style>
+	</template>
+	<script src="/components/modal-form/modal-form.js"></script>
+</polymer-element>
